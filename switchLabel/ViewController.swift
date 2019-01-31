@@ -10,6 +10,9 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var labelOne: NSTextField!
+    @IBOutlet weak var labelTwo: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,16 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func switchText(_ sender: NSButton) {
+        var tmpString: String
+        
+        tmpString = labelOne.stringValue
+        labelOne.stringValue = labelTwo.stringValue
+        labelTwo.stringValue = tmpString
+    }
+    
+    @IBAction func closeApplication(_ sender: NSButton) {
+        NSApplication.shared.terminate(self)
+    }
 }
 
